@@ -1,0 +1,78 @@
+
+
+#slidegallery {
+	background: url("../images/bg_grey.png") repeat scroll 0 0 transparent;
+    width: 820px;
+    height: 800px;
+}
+#picturepane {
+    overflow: hidden;
+    width: 800px;
+    margin: 10px;
+}
+#pictures {
+    width: 10000px;
+}
+#previewpane {
+    margin: 10px;
+    overflow: hidden;
+}
+
+#previews {
+    width: 10000px;
+}
+
+#slidegallery .picture {
+    opacity: 0.4;
+    margin: 10px;
+    display: inline;
+    float: left;
+}
+
+#slidegallery .picture img {
+    height: 400px;
+}
+
+#slidegallery .caption {
+    /* Perhaps this is confusing. The caption class is the caption for each
+     * picture. The caption id is the actual location where it will be
+     * displayed. Javascript will fish out the caption and put it in the proper
+     * place.
+     */
+    display: none;
+}
+
+#caption {
+    clear: left;
+    color: white;
+    width: 600px;
+    height: 80px;
+    margin: 0 auto;
+}
+#caption h2{
+	font-family: "Orbitron", sans-serif;
+	font-weight: normal;
+    font-size: 1em;
+}
+#caption p{
+	font-family: "Orbitron", sans-serif;
+	font-weight: normal;
+    font-size: .8em;
+}
+
+#slidegallery .preview {
+    float: left;
+    opacity: 0.4;
+    margin: 10px;
+    display: inline;
+}
+#slidegallery .preview img {
+    height: 100px;
+}
+
+#slidegallery .active {
+    opacity: 1.0;
+}
+#slidegallery .preview.active {
+    border: 2px solid #DFA;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Aqualuce</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<script src="js/jquery.min.js" type="text/javascript"> </script>
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="js/supersized.3.2.6.min.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"> </script>
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Orbitron:400,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen">
+	<link rel=stylesheet href="css/style.css" type="text/css" media="screen">
+	<link rel=stylesheet href="css/gallery.css" type="text/css" media="screen">
+    <script>
+        var activatefun = function(i) { return function() {
+            // change class
+            var pictures = $(".picture");
+            var previews = $(".preview");
+            
+            if ($(pictures[i]).hasClass("active")) {return false;}
+            
+            pictures.removeClass("active");
+            previews.removeClass("active");
+            $(previews[i]).addClass("active");
+            
+            
+            // Actually scroll window.
+            // Offset x so as to center it.
+            var picturexoff = $("#slidegallery").width()/2 - $(pictures[i]).width()/2;
+            $('#picturepane').stop().scrollTo( $(pictures[i]), 800, {
+                offset: {left: -picturexoff},
+                onAfter: function(){
+                    $(pictures[i]).addClass("active");
+                    $('#caption').html( $(".active > .caption").html() )
+                }
+            } );
+            var previewxoff = $("#slidegallery").width()/2 - $(previews[i]).width()/2;
+            $('#previewpane').stop().scrollTo( $(previews[i]), 800, {offset: {left: -previewxoff}} );
+            return true;
+        };};
+        jQuery(function($){
+            var pictures=$(".picture");
+            var previews = $(".preview");
+            for (var i=0; i<pictures.length; i++) {
+                $(pictures[i]).click( activatefun(i) );
+                $(previews[i]).click( activatefun(i) );
+            }
+            activatefun(0)();
+        });
+    </script>
+
+</head>
+
+
+<body>
+    <div id="slidegallery">
+        <div id="picturepane">
+            <ul id="pictures">
+                <li class="picture">
+                    <img src="galleryimages/Image1.jpg" alt="a picture">
+                    <span class="caption">
+                        <h2>Picture 1.</h2>
+                        <p class="gallerycaption">This is some filler text, explaining the picture. You can see that it is a jpeg, and has properties. There are also adjectives that describe it.</p>
+                    </span>
+                </li>
+                <li class="picture">
+                    <img src="galleryimages/Image2.jpg" alt="a picture">
+                    <span class="caption">
+                        <h2>Picture 2.</h2>
+                        <p class="gallerycaption">This is some filler text, explaining the picture. You can see that it is a jpeg, and has properties. There are also adjectives that describe it.</p>
+                    </span>
+                </li>
+                <li class="picture">
+                    <img src="galleryimages/Image3.jpg" alt="a picture">
+                    <span class="caption">
+                        <h2>Picture 3.</h2>
+                        <p class="gallerycaption">This is some filler text, explaining the picture. You can see that it is a jpeg, and has properties. There are also adjectives that describe it.</p>
+                    </span>
+                </li>
+                <li class="picture">
+                    <img src="galleryimages/Image4.jpg" alt="a picture">
+                    <span class="caption">
+                        <h2>Picture 4.</h2>
+                        <p class="gallerycaption">This is some filler text, explaining the picture. You can see that it is a jpeg, and has properties. There are also adjectives that describe it.</p>
+                    </span>
+                </li>
+                <li class="picture">
+                    <img src="galleryimages/Image5.jpg" alt="a picture">
+                    <span class="caption">
+                        <h2>Picture 5.</h2>
+                        <p class="gallerycaption">This is some filler text, explaining the picture. You can see that it is a jpeg, and has properties. There are also adjectives that describe it.</p>
+                    </span>
+                </li>
+                <li class="picture">
+                    <img src="galleryimages/Image6.jpg" alt="a picture">
+                    <span class="caption">
+                        <h2>Picture 6.</h2>
+                        <p class="gallerycaption">This is some filler text, explaining the picture. You can see that it is a jpeg, and has properties. There are also adjectives that describe it.</p>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div id="caption">
+        </div>
+        <div id="previewpane">
+            <ul id="previews">
+                <li class="preview">
+                    <img src="galleryimages/Image1.jpg" alt="a picture">
+                </li>
+                <li class="preview">
+                    <img src="galleryimages/Image2.jpg" alt="a picture">
+                </li>
+                <li class="preview">
+                    <img src="galleryimages/Image3.jpg" alt="a picture">
+                </li>
+                <li class="preview">
+                    <img src="galleryimages/Image4.jpg" alt="a picture">
+                </li>
+                <li class="preview">
+                    <img src="galleryimages/Image5.jpg" alt="a picture">
+                </li>
+                <li class="preview">
+                    <img src="galleryimages/Image6.jpg" alt="a picture">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
